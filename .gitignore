@@ -1,0 +1,87 @@
+# Python environments, bytecode, and tool caches
+venv/
+.venv/
+env/
+.env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.cache/
+.ipynb_checkpoints/
+*.egg-info/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# JavaScript dependencies and generated builds (keep package-lock.json)
+node_modules/
+.npm/
+.npm-cache/
+dist/
+dist-ssr/
+build/
+.vite/
+.vite-temp/
+coverage/
+*.tsbuildinfo
+playwright-report/
+test-results/
+
+# Local configuration and credentials (allow example configuration)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+.aws/
+*.pem
+*.key
+
+# Trained models, checkpoints, datasets, and generated experiment outputs
+/artifacts/
+*.h5
+*.hdf5
+*.keras
+*.ckpt
+*.ckpt.*
+*.data-*-of-*
+*.tfrecord
+*.tfrecords
+events.out.tfevents.*
+data/
+dataset/
+datasets/
+checkpoints/
+saved_model/
+runs/
+wandb/
+uploads/
+outputs/
+# Bundled UI fixtures in frontend/public/samples stay in Git.
+
+# Runtime logs and temporary files
+logs/
+*.log
+*.pid
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Personal editor and operating-system files
+.vscode/
+.idea/
+.vs/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.suo
+*.user

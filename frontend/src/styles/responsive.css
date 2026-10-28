@@ -1,0 +1,168 @@
+@media(max-width:900px) {
+  main {
+    padding: 0 24px;
+  }
+  .hero-pair {
+    width: 38%;
+  }
+  .intro {
+    gap: 20px;
+  }
+  .checks {
+    gap: 12px;
+  }
+  .settings {
+    align-items: flex-start;
+  }
+  .about {
+    gap: 40px;
+  }
+  .image-stage {
+    height: 290px;
+  }
+  .mode {
+    padding: 13px 10px;
+    gap: 8px;
+  }
+  .mode-icon {
+    display: none;
+  }
+  .workspace {
+    padding: 22px;
+  }
+  .local-note {
+    font-size: 9px;
+  }
+}
+
+@media(max-width:620px) {
+  .topbar {
+    height: 72px;
+    padding: 0 20px;
+  }
+  .brand {
+    font-size: 22px;
+  }
+  .brand-mark {
+    font-size: 26px;
+  }
+  .status {
+    font-size: 10px;
+  }
+  nav {
+    display: none;
+  }
+  main {
+    padding: 0 16px;
+  }
+  .intro {
+    padding: 35px 4px 30px;
+  }
+  .intro h1 {
+    font-size: 36px;
+    letter-spacing: -1.8px;
+  }
+  .intro .eyebrow {
+    font-size: 8px;
+  }
+  .lede {
+    font-size: 12px;
+  }
+  .hero-pair {
+    display: none;
+  }
+  .workspace {
+    padding: 17px;
+    border-radius: 13px;
+  }
+  .workspace-heading {
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .workspace-heading h2 {
+    font-size: 26px;
+  }
+  .workspace-heading .eyebrow {
+    font-size: 8px;
+  }
+  .local-note {
+    max-width: 100px;
+    line-height: 1.6;
+  }
+  .mode-bar {
+    gap: 7px;
+    margin-bottom: 15px;
+  }
+  .mode {
+    padding: 12px 7px;
+    justify-content: center;
+  }
+  .mode strong {
+    font-size: 10px;
+  }
+  .mode small {
+    font-size: 9px;
+  }
+  .radio-dot {
+    display: none;
+  }
+  .panels {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .image-stage {
+    height: 310px;
+  }
+  .settings {
+    flex-direction: column;
+    gap: 22px;
+  }
+  .checks {
+    gap: 13px;
+  }
+  .primary {
+    width: 100%;
+  }
+  .about {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 40px 7px;
+  }
+  .about h2 {
+    font-size: 31px;
+  }
+  .preview-strip {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .preview-strip p {
+    font-size: 10px;
+  }
+  .preview-strip img {
+    width: 55px;
+    height: 55px;
+  }
+  .preview-strip button {
+    margin-left: 0;
+  }
+  .input-footer {
+    font-size: 9px;
+  }
+  .text-button {
+    font-size: 10px;
+  }
+  footer {
+    padding: 20px;
+    gap: 20px;
+    font-size: 9px;
+  }
+  footer .brand {
+    font-size: 15px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .spinner {
+    animation: none;
+  }
+}
