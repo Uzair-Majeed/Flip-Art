@@ -4,13 +4,23 @@ FlipArt converts face photographs into pencil sketches and sketches into face ph
 
 **Created by Uzair Majeed and Faez Ahmed.**
 
+## Pre-trained Model Weights
+
+Download the pre-trained CycleGAN generator weights directly from HuggingFace:
+
+* **[HuggingFace Model Repository (uzairdot/Cycle-GAN-Sketch-to-Image)](https://huggingface.co/uzairdot/Cycle-GAN-Sketch-to-Image/tree/main)**
+
 ## Features
 
-- Upload or drag and drop PNG, JPG, BMP, and WebP images up to 10 MB.
-- Capture photos with a webcam, preview them, and retake them.
-- Detect the input type automatically or choose the direction manually.
-- Preview the prepared input, crop faces, clean up sketches, and adjust sketch output.
-- Download results as PNG files. Images are processed locally.
+* Upload or drag and drop PNG, JPG, BMP, and WebP images up to 10 MB.
+
+* Capture photos with a webcam, preview them, and retake them.
+
+* Detect the input type automatically or choose the direction manually.
+
+* Preview the prepared input, crop faces, clean up sketches, and adjust sketch output.
+
+* Download results as PNG files. Images are processed locally.
 
 The ResNet-6 generators operate at 128 x 128 pixels. Results are enlarged to 512 x 512 for display and download; tightly framed faces similar to the training data work best.
 
@@ -20,25 +30,25 @@ These screenshots are extracted from the [project report](docs/cyclegan-report.p
 
 ### Interface
 
-| Home page | Conversion workspace |
-| --- | --- |
-| ![Home page from the project report](docs/screenshots/homepage.png) | ![Upload panel, conversion modes, and image settings](docs/screenshots/workspace.png) |
+| Home page | Conversion workspace | 
+| ----- | ----- | 
+| ![Home page from the project report](docs/screenshots/homepage.png) | ![Upload panel, conversion modes, and image settings](docs/screenshots/workspace.png) | 
 
 ### Photo to sketch
 
-| Example 1 | Example 2 |
-| --- | --- |
-| ![Face photograph converted into a sketch](docs/screenshots/photo-to-sketch-example-1.png) | ![Second photo-to-sketch conversion with contrast enhancement](docs/screenshots/photo-to-sketch-example-2.png) |
+| Example 1 | Example 2 | 
+| ----- | ----- | 
+| ![Face photograph converted into a sketch](docs/screenshots/photo-to-sketch-example-1.png) | ![Second photo-to-sketch conversion with contrast enhancement](docs/screenshots/photo-to-sketch-example-2.png) | 
 
 ### Sketch to photo
 
-| Example 1 | Example 2 |
-| --- | --- |
-| ![Sketch converted into a generated face photograph](docs/screenshots/sketch-to-photo-example-1.png) | ![Second sketch-to-photo conversion](docs/screenshots/sketch-to-photo-example-2.png) |
+| Example 1 | Example 2 | 
+| ----- | ----- | 
+| ![Sketch converted into a generated face photograph](docs/screenshots/sketch-to-photo-example-1.png) | ![Second sketch-to-photo conversion](docs/screenshots/sketch-to-photo-example-2.png) | 
 
-| Example 3 | Example 4 |
-| --- | --- |
-| ![Third sketch-to-photo conversion](docs/screenshots/sketch-to-photo-example-3.png) | ![Fourth sketch-to-photo conversion showing model limitations](docs/screenshots/sketch-to-photo-example-4.png) |
+| Example 3 | Example 4 | 
+| ----- | ----- | 
+| ![Third sketch-to-photo conversion](docs/screenshots/sketch-to-photo-example-3.png) | ![Fourth sketch-to-photo conversion showing model limitations](docs/screenshots/sketch-to-photo-example-4.png) | 
 
 ## Run with the existing environment
 
@@ -62,7 +72,7 @@ npm.cmd --prefix frontend ci
 npm.cmd --prefix frontend run build
 ```
 
-Model binaries are excluded from Git. Obtain the trained files separately or export them with [the training notebook](training/train_cyclegan.ipynb), then place both generators here:
+Model binaries are excluded from Git. Obtain the trained files separately from [HuggingFace](https://huggingface.co/uzairdot/Cycle-GAN-Sketch-to-Image/tree/main) or export them with [the training notebook](training/train_cyclegan.ipynb), then place both generators here:
 
 ```text
 backend/weights/
@@ -109,31 +119,31 @@ Tests cover both conversion directions, bundled sample serving, cleanup routing,
 
 ```text
 backend/
-  run.py                       # Local server entry point
-  requirements.txt             # Python dependencies
+  run.py                        # Local server entry point
+  requirements.txt              # Python dependencies
   flipart/
-    __init__.py                # Flask application factory
-    config.py                  # Paths and image limits
-    errors.py                  # Shared JSON error handling
-    routes/                    # HTTP endpoints and request validation
-    services/                  # Detection, decoding, cropping, and conversion
-    models/                    # Custom layers, generator architecture, inference
-  tests/                       # Integration and preprocessing checks
-  tools/evaluate_detector.py   # Dataset evaluation CLI
-  weights/                     # Local model files; binaries ignored
+    __init__.py                 # Flask application factory
+    config.py                   # Paths and image limits
+    errors.py                   # Shared JSON error handling
+    routes/                     # HTTP endpoints and request validation
+    services/                   # Detection, decoding, cropping, and conversion
+    models/                     # Custom layers, generator architecture, inference
+  tests/                        # Integration and preprocessing checks
+  tools/evaluate_detector.py    # Dataset evaluation CLI
+  weights/                      # Local model files; binaries ignored
 frontend/
-  public/samples/              # Bundled demo photos and sketches
+  public/samples/               # Bundled demo photos and sketches
   src/
-    App.tsx                    # Page composition
-    components/                # Layout, model information, conversion panels
-    hooks/                     # Conversion state, backend health, camera lifecycle
-    api/                       # Typed HTTP client
-    types/                     # Shared TypeScript contracts
-    utils/                     # Image reading and data URL helpers
-    styles/                    # Base, layout, workspace, responsive CSS
-training/train_cyclegan.ipynb   # Training notebook
-docs/cyclegan-report.pdf       # Assignment report
-docs/screenshots/              # Demo screenshots extracted from the report
+    App.tsx                     # Page composition
+    components/                 # Layout, model information, conversion panels
+    hooks/                      # Conversion state, backend health, camera lifecycle
+    api/                        # Typed HTTP client
+    types/                      # Shared TypeScript contracts
+    utils/                      # Image reading and data URL helpers
+    styles/                     # Base, layout, workspace, responsive CSS
+training/train_cyclegan.ipynb    # Training notebook
+docs/cyclegan-report.pdf        # Assignment report
+docs/screenshots/               # Demo screenshots extracted from the report
 ```
 
 The frontend owns presentation and browser interactions. Flask routes validate HTTP requests and delegate to services. Services prepare images and call the generators; model code owns architecture, cached loading, and locked inference. Paths are resolved from the package location, so backend startup also works from inside `backend/`.
@@ -148,9 +158,14 @@ Existing model exports, training outputs, sample experiments, and the superseded
 
 ## Troubleshooting
 
-- **Missing weights:** place both generators in `backend/weights/` before starting Flask.
-- **React build missing:** run `npm.cmd --prefix frontend ci` and `npm.cmd --prefix frontend run build`.
-- **Backend unavailable:** start Flask and wait for its model self-checks; confirm port 5000 is available.
-- **PowerShell blocks npm.ps1:** use `npm.cmd` as shown above.
-- **TensorFlow compatibility:** the supplied environment uses Python 3.14 and TensorFlow 2.22.0-rc0; use a fresh Python 3.12 environment for the pinned training dependencies.
-- **Camera unavailable:** allow browser permission and use localhost or HTTPS, or upload an image.
+* **Missing weights:** place both generators in `backend/weights/` before starting Flask.
+
+* **React build missing:** run `npm.cmd --prefix frontend ci` and `npm.cmd --prefix frontend run build`.
+
+* **Backend unavailable:** start Flask and wait for its model self-checks; confirm port 5000 is available.
+
+* **PowerShell blocks npm.ps1:** use `npm.cmd` as shown above.
+
+* **TensorFlow compatibility:** the supplied environment uses Python 3.14 and TensorFlow 2.22.0-rc0; use a fresh Python 3.12 environment for the pinned training dependencies.
+
+* **Camera unavailable:** allow browser permission and use localhost or HTTPS, or upload an image.
